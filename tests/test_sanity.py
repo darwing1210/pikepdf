@@ -116,7 +116,8 @@ def test_copy_semantics(resources):
 
 
 def test_copy_page_keepalive(resources, outdir):
-    copy(resources / 'sandwich.pdf', outdir / 'sandwich.pdf')
+    # str for py<3.6
+    copy(str(resources / 'sandwich.pdf'), str(outdir / 'sandwich.pdf'))
     src = Pdf.open(outdir / 'sandwich.pdf')  # no with clause
     pdf = Pdf.open(resources / 'graph.pdf')
 

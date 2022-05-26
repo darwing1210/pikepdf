@@ -121,7 +121,8 @@ def test_reverse_pages(resources, outdir):
 
 @skip_if_pypy
 def test_evil_page_deletion(resources, outdir):
-    copy(resources / 'sandwich.pdf', outdir / 'sandwich.pdf')
+    # str needed for py<3.6
+    copy(str(resources / 'sandwich.pdf'), str(outdir / 'sandwich.pdf'))
 
     src = Pdf.open(outdir / 'sandwich.pdf')  # no with clause
     pdf = Pdf.open(resources / 'graph.pdf')

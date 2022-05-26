@@ -13,8 +13,8 @@ except ImportError:
 
 import pytest
 
-if sys.version_info < (3, 7):
-    print("Requires Python 3.7+")
+if sys.version_info < (3, 6):
+    print("Requires Python 3.6+")
     sys.exit(1)
 
 

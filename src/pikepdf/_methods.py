@@ -205,7 +205,8 @@ def _mudraw(buffer, fmt) -> bytes:
 
         proc = run(
             ['mudraw', '-F', fmt, '-o', '-', tmp_in.name],
-            capture_output=True,
+            stdout=PIPE,
+            stderr=PIPE,
             check=True,
         )
         return proc.stdout
