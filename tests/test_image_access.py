@@ -6,7 +6,7 @@ from io import BytesIO
 from math import ceil
 from os import fspath
 from pathlib import Path
-from subprocess import run
+from subprocess import run, PIPE
 from typing import NamedTuple, Sequence
 
 import PIL
@@ -45,7 +45,7 @@ from pikepdf.models.image import (
 
 def has_pdfimages():
     try:
-        run(['pdfimages', '-v'], check=True, capture_output=True)
+        run(['pdfimages', '-v'], check=True, stdout=PIPE, stderr=PIPE)
     except FileNotFoundError:
         return False
     else:
